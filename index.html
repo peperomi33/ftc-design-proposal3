@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공정거래위원회 온라인사건·심의포털 고도화 디자인 제안 시안</title>
+  <!-- 폐쇄망/오프라인 대응: Tailwind를 정적 컴파일하여 인라인 (CDN 불필요) -->
+  <style id="tailwind-compiled">
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.bottom-5{bottom:1.25rem}.left-1\/2{left:50%}.top-0{top:0}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[16\/10\]{aspect-ratio:16/10}.h-1\.5{height:.375rem}.h-3\.5{height:.875rem}.h-4{height:1rem}.h-auto{height:auto}.h-full{height:100%}.min-h-0{min-height:0}.min-h-screen{min-height:100vh}.w-1\.5{width:.375rem}.w-3\.5{width:.875rem}.w-4{width:1rem}.w-auto{width:auto}.w-full{width:100%}.max-w-7xl{max-width:80rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.cursor-zoom-in{cursor:zoom-in}.select-none{-webkit-user-select:none;-moz-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.space-y-20>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-3\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.875rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.875rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem*var(--tw-space-y-reverse))}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.break-keep{word-break:keep-all}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246/var(--tw-border-opacity,1))}.border-gray-150{--tw-border-opacity:1;border-color:rgb(236 236 238/var(--tw-border-opacity,1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-250{--tw-border-opacity:1;border-color:rgb(220 220 224/var(--tw-border-opacity,1))}.border-gray-400{--tw-border-opacity:1;border-color:rgb(156 163 175/var(--tw-border-opacity,1))}.border-gray-900{--tw-border-opacity:1;border-color:rgb(17 24 39/var(--tw-border-opacity,1))}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-gray-150{--tw-bg-opacity:1;background-color:rgb(236 236 238/var(--tw-bg-opacity,1))}.bg-gray-200\/70{background-color:rgba(229,231,235,.7)}.bg-gray-250{--tw-bg-opacity:1;background-color:rgb(220 220 224/var(--tw-bg-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-gray-50\/40{background-color:rgba(249,250,251,.4)}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39/var(--tw-bg-opacity,1))}.bg-gray-900\/80{background-color:rgba(17,24,39,.8)}.bg-gray-950{--tw-bg-opacity:1;background-color:rgb(15 15 18/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/80{background-color:hsla(0,0%,100%,.8)}.object-cover{-o-object-fit:cover;object-fit:cover}.object-top{-o-object-position:top;object-position:top}.p-0{padding:0}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pl-3{padding-left:.75rem}.pl-4{padding-left:1rem}.pr-3\.5{padding-right:.875rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[0\.8rem\]{font-size:.8rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.text-gray-950{--tw-text-opacity:1;color:rgb(15 15 18/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/90{color:hsla(0,0%,100%,.9)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.selection\:bg-blue-100 ::-moz-selection{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.selection\:bg-blue-100 ::selection{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.selection\:bg-blue-100::-moz-selection{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.selection\:bg-blue-100::selection{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.hover\:border-gray-900:hover{--tw-border-opacity:1;border-color:rgb(17 24 39/var(--tw-border-opacity,1))}.hover\:bg-gray-950:hover{--tw-bg-opacity:1;background-color:rgb(15 15 18/var(--tw-bg-opacity,1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.hover\:text-gray-950:hover{--tw-text-opacity:1;color:rgb(15 15 18/var(--tw-text-opacity,1))}.hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.group:hover .group-hover\:-translate-x-0\.5{--tw-translate-x:-0.125rem}.group:hover .group-hover\:-translate-x-0\.5,.group:hover .group-hover\:translate-x-1{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}@media (min-width:768px){.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}}@media (min-width:1024px){.lg\:mx-0{margin-left:0;margin-right:0}.lg\:mt-0{margin-top:0}.lg\:h-screen{height:100vh}.lg\:min-h-0{min-height:0}.lg\:w-1\/2{width:50%}.lg\:w-48{width:12rem}.lg\:flex-row{flex-direction:row}.lg\:items-center{align-items:center}.lg\:overflow-hidden{overflow:hidden}.lg\:border-b-0{border-bottom-width:0}.lg\:border-r{border-right-width:1px}.lg\:p-16{padding:4rem}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}}
+  </style>
+  <style>
+    @font-face {
+      font-family: 'GmarketSansMedium';
+      src: url('fonts/GmarketSansMedium.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    /* 영문·숫자 전용 지마켓산스 (한글은 Pretendard 유지) */
+    @font-face {
+      font-family: 'GmarketSansLatin';
+      src: url('fonts/GmarketSansMedium.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      unicode-range: U+0020-007F;
+    }
+    /* 폐쇄망 대응: Pretendard 가변폰트를 외부 파일로 참조 */
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('fonts/PretendardVariable.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    :root {
+      --font-gmarket: 'GmarketSansMedium', sans-serif;
+      --font-pretendard: 'Pretendard', 'Malgun Gothic', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+    body {
+      font-family: 'GmarketSansLatin', var(--font-pretendard);
+      background-color: #ffffff;
+      color: #17171c;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-title {
+      font-family: 'GmarketSansLatin', var(--font-pretendard);
+      font-weight: 600;
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* 미니멀 커스텀 스크롤바 */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f4f4f4;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+    
+    /* 전역 및 특정 컴포넌트의 max-width 제한 강제 해제 */
+    img {
+      max-width: none !important;
+    }
+    
+    /* 우측 상단 플로팅 '메인으로' 버튼 스타일 */
+    .floating-main-btn {
+      opacity: 0.5;
+      transition: all 0.2s ease-in-out;
+    }
+    .floating-main-btn:hover {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    /* 좌측 이미지 영역 '전체보기' 안내 배지 */
+    .zoom-hint {
+      animation: hintFloat 2.8s ease-in-out infinite;
+    }
+    @keyframes hintFloat {
+      0%, 100% { transform: translate(-50%, 0); }
+      50%      { transform: translate(-50%, -5px); }
+    }
+    /* 이미지에 마우스를 올리면 안내를 살짝 흐리게 처리해 시야 방해 최소화 */
+    .group:hover .zoom-hint {
+      opacity: 0.45;
+    }
+
+    /* === 컨셉서·풀이미지 보기(detail) 페이지 영문 폰트 통일 === */
+    /* 기존 모노스페이스 라벨을 메인 화면과 동일한 지마켓산스(영문)로 변경 */
+    #detail-page .font-mono {
+      font-family: 'GmarketSansLatin', var(--font-pretendard) !important;
+    }
+    /* 영문 폰트(지마켓산스) 라벨은 자간(letter-spacing)을 0으로 적용 */
+    #detail-page .font-mono,
+    #detail-page .tracking-wider {
+      letter-spacing: 0 !important;
+    }
+  </style>
+  <script>
+    const conceptData = {
+      'a-style': {
+        letter: 'A',
+        title: '직관적 서비스중심 UI',
+        imageSrc: '01.png',
+        tags: ['업무흐름중심', '빠른진입UI', '신뢰를주는블루Color'],
+        conceptText: '분쟁조정 → 신고 → 전자심의로 이어지는 실제 업무 흐름을 화면 동선에 그대로 반영한 안입니다. 핵심 서비스를 첫 화면 전면에 배치해 방문자가 고민 없이 바로 진입할 수 있도록 했고, 라운드 처리한 미니멀한 디자인 구성으로 복잡한 행정 서비스의 진입 부담을 낮췄습니다.',
+        features: ['분쟁조정·신고·심의 핵심 서비스를 상단 전면 배치해 진입 단계 최소화', '라운드·여백 중심의 미니멀 레이아웃으로 가독성과 안정감 확보', '신뢰를 전달하는 단일 블루톤으로 공공기관 정체성 강화']
+      },
+      'b-style': {
+        letter: 'B',
+        title: '콘텐츠 몰입형 와이드카드 UI',
+        imageSrc: '02.png',
+        tags: ['와이드레이아웃', '콘텐츠몰입', '인터랙션'],
+        conceptText: '화면을 넓고 시원하게 사용해 콘텐츠 집중도를 높인 안입니다. 주요 서비스를 카드 단위로 구조화하고, 마우스 오버 시 배경 컬러가 변하는 인터랙션을 더해 사용자의 시선을 자연스럽게 유도합니다. 다채로운 컬러 운용으로 정보 구분을 직관화했습니다.',
+        features: ['와이드 그리드로 여백을 살려 콘텐츠 가독성과 개방감 극대화', '카드별 호버 인터랙션으로 주요 서비스에 시선 집중 유도', '기능별 컬러 시스템으로 메뉴·서비스 구분을 직관화']
+      },
+      'c-style': {
+        letter: 'C',
+        title: '안정형 공공포털 벤토그리드 UI',
+        imageSrc: '03.png',
+        tags: ['공공포털구조', '벤토그리드', '정보집약UI'],
+        conceptText: '정보와 기능을 영역별로 분리 배치한 정통 공공포털 구조의 안입니다. 벤토그리드 레이아웃으로 다양한 콘텐츠를 한 화면에 안정적으로 집약하고, 비주얼 영역과 하단 콘텐츠 사이에 중요한 콘텐츠를 아이콘과 함께 영역으로 배치하여 핵심 서비스의 주목도를 높였습니다.',
+        features: ['벤토그리드 기반 영역 분리로 정보 위계와 탐색성 강화', '비주얼–콘텐츠 사이 띠 구조로 핵심 서비스 주목도 향상', '블루 기반에 그린 포인트를 더해 안정감과 생동감의 균형']
+      },
+      'common-sub': {
+        letter: 'S',
+        title: 'KRDS 기반 서브페이지 UI',
+        imageSrc: 'common.png',
+        tags: ['KRDS표준', '일관된사용경험', '정보가독성'],
+        conceptText: '정부 디자인 시스템(KRDS) 기준에 따라 설계해, 어떤 메인 안이 채택되더라도 검색·조회·목록·상세로 이어지는 핵심 업무 화면에서 표준화된 사용성과 일관된 경험을 보장합니다. 진행 단계별 상태 배지로 복잡한 사건 현황을 한눈에 파악할 수 있도록 구성했습니다.',
+        features: ['KRDS 표준 컴포넌트 적용으로 정부 디자인 가이드라인 준수']
+      }
+    };
+
+    function navigateTo(id) {
+      const data = conceptData[id];
+      if (!data) return;
+
+      document.getElementById('main-page').classList.add('hidden');
+      document.getElementById('detail-page').classList.remove('hidden');
+      window.scrollTo(0, 0);
+
+      document.getElementById('detail-title').innerText = data.title;
+      document.getElementById('detail-concept-text').innerText = data.conceptText;
+      
+      const imgContainer = document.getElementById('detail-image-container');
+      imgContainer.scrollTop = 0;
+      
+      const mainImg = document.getElementById('detail-main-img');
+      mainImg.src = data.imageSrc;
+      mainImg.alt = data.title + " 시안 이미지";
+
+      const tagsContainer = document.getElementById('detail-tags');
+      tagsContainer.innerHTML = '';
+      data.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'text-xs font-semibold px-2.5 py-1 bg-gray-100 text-gray-700 rounded';
+        span.innerText = '#' + tag;
+        tagsContainer.appendChild(span);
+      });
+
+      const featuresContainer = document.getElementById('detail-features');
+      featuresContainer.innerHTML = '';
+      data.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-3 text-sm text-gray-650';
+        li.innerHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0"></span><span class="leading-relaxed break-keep">${feature}</span>`;
+        featuresContainer.appendChild(li);
+      });
+
+      document.getElementById('modal-img').src = data.imageSrc;
+    }
+
+    function navigateToMain() {
+      document.getElementById('detail-page').classList.add('hidden');
+      document.getElementById('fullscreen-modal').classList.add('hidden');
+      document.getElementById('main-page').classList.remove('hidden');
+      document.body.style.overflow = '';
+      window.scrollTo(0, 0);
+    }
+
+    function openModal() {
+      const modal = document.getElementById('fullscreen-modal');
+      modal.classList.remove('hidden');
+      modal.scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('fullscreen-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</head>
+<body class="selection:bg-blue-100">
+
+  <!-- ==================== [PAGE 1] 메인 대시보드 화면 ==================== -->
+  <div id="main-page" class="flex flex-col min-h-screen bg-white">
+    <header class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <span class="text-xs font-semibold tracking-wider text-blue-650 uppercase bg-blue-50 px-2.5 py-1 rounded">design proposal</span>
+          <h1 class="font-title text-2xl md:text-3xl text-gray-900 mt-2 tracking-tight">
+            공정거래위원회 온라인사건·심의포털 고도화 디자인
+          </h1>
+        </div>
+        <div class="text-sm text-gray-400 font-medium">
+          발표일 : 2026. 06. 12
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-16 space-y-20">
+      <section class="space-y-8">
+        <div class="border-l-4 border-gray-900 pl-4">
+          <h2 class="text-xl font-bold tracking-tight text-gray-900">Main Design Alternatives</h2>
+          <p class="text-sm text-gray-500 mt-1">공정거래위원회 온라인사건·심의포털 고도화 프로젝트의 핵심 UX/UI 방향성을 담은 세 가지 메인 시안입니다.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- A안 -->
+          <div onclick="navigateTo('a-style')" class="group flex flex-col justify-between border border-gray-200 rounded-xl p-6 bg-white hover:border-gray-900 hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div>
+              <div class="w-full aspect-[16/10] bg-gray-50 rounded-lg overflow-hidden border border-gray-100 mb-6 relative">
+                <img src="01.png" alt="A안 프리뷰" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" style="max-width: 100% !important;">
+              </div>
+              <span class="text-xs font-medium text-blue-600">디자인 A안</span>
+              <h3 class="text-lg font-bold text-gray-950 mt-1.5 mb-2 group-hover:text-blue-600 transition-colors">직관적 서비스중심 UI</h3>
+              <p class="text-sm text-gray-500 leading-relaxed break-keep">분쟁조정·신고·심의의 실제 업무 흐름을 동선에 반영한 서비스 중심 UI</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-900">
+              <span>컨셉서 및 풀 이미지 보기</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </div>
+
+          <!-- B안 -->
+          <div onclick="navigateTo('b-style')" class="group flex flex-col justify-between border border-gray-200 rounded-xl p-6 bg-white hover:border-gray-900 hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div>
+              <div class="w-full aspect-[16/10] bg-gray-50 rounded-lg overflow-hidden border border-gray-100 mb-6 relative">
+                <img src="02.png" alt="B안 프리뷰" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" style="max-width: 100% !important;">
+              </div>
+              <span class="text-xs font-medium text-blue-600">디자인 B안</span>
+              <h3 class="text-lg font-bold text-gray-950 mt-1.5 mb-2 group-hover:text-blue-600 transition-colors">콘텐츠 몰입형 와이드카드 UI</h3>
+              <p class="text-sm text-gray-500 leading-relaxed break-keep">와이드 카드와 호버 인터랙션으로 콘텐츠 몰입도를 높인 UI</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-900">
+              <span>컨셉서 및 풀 이미지 보기</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </div>
+
+          <!-- C안 -->
+          <div onclick="navigateTo('c-style')" class="group flex flex-col justify-between border border-gray-200 rounded-xl p-6 bg-white hover:border-gray-900 hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div>
+              <div class="w-full aspect-[16/10] bg-gray-50 rounded-lg overflow-hidden border border-gray-100 mb-6 relative">
+                <img src="03.png" alt="C안 프리뷰" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" style="max-width: 100% !important;">
+              </div>
+              <span class="text-xs font-medium text-blue-600">디자인 C안</span>
+              <h3 class="text-lg font-bold text-gray-950 mt-1.5 mb-2 group-hover:text-blue-600 transition-colors">안정형 공공포털 벤토그리드 UI</h3>
+              <p class="text-sm text-gray-500 leading-relaxed break-keep">벤토그리드로 정보를 영역별로 안정적으로 집약한 공공포털형 UI</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-900">
+              <span>컨셉서 및 풀 이미지 보기</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-8 pt-6 border-t border-gray-150">
+        <div class="border-l-4 border-gray-400 pl-4">
+          <h2 class="text-xl font-bold tracking-tight text-gray-900">Sub Design (Common)</h2>
+          <p class="text-sm text-gray-500 mt-1">각 대안의 내부 입력 및 출력 모듈의 표준이 되는 공통 레이아웃 시안입니다.</p>
+        </div>
+
+        <div onclick="navigateTo('common-sub')" class="group border border-gray-200 rounded-xl p-6 bg-gray-50/40 hover:bg-white hover:border-gray-900 hover:shadow-xl transition-all duration-300 cursor-pointer">
+          <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6">
+            <div class="w-full lg:w-48 aspect-[16/10] bg-white rounded-lg overflow-hidden border border-gray-200 shrink-0">
+              <img src="common.png" alt="공통 시안 프리뷰" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" style="max-width: 100% !important;">
+            </div>
+            <div class="space-y-1.5 flex-1">
+              <span class="text-xs font-semibold bg-gray-200/70 text-gray-700 px-2 py-0.5 rounded">COMMON UTILITY</span>
+              <h3 class="text-lg font-bold text-gray-950 group-hover:text-blue-600 transition-colors">KRDS 기반 서브페이지 UI</h3>
+              <p class="text-sm text-gray-600 leading-relaxed break-keep">
+                정부 디자인 시스템(KRDS) 기준에 따라 검색·조회·목록·상세 화면을 표준화하고, 진행 단계별 상태 배지로 사건 현황을 직관적으로 보여주는 공통 서브페이지 UI입니다.
+              </p>
+            </div>
+            <div class="text-xs font-semibold text-gray-900 flex items-center gap-1 shrink-0 mt-2 lg:mt-0">
+              <span>공통 시안 확인</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-gray-150 bg-gray-50 mt-auto">
+      <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div>© 2026 공정거래위원회 온라인사건·심의포털 고도화 프로젝트 UI/UX팀.</div>
+        <div class="flex gap-6">
+          <span class="font-bold text-gray-700 tracking-wider">CONFIDENTIAL</span>
+          <span>본 제안 시안 파일은 프리젠테이션 및 평가 목적으로만 제한됩니다.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ==================== [PAGE 2] 컨셉서 소개 및 분할 페이지 ==================== -->
+  <div id="detail-page" class="min-h-screen lg:h-screen lg:overflow-hidden bg-white flex flex-col hidden animate-fade-in">
+    <nav class="border-b border-gray-150 px-6 py-4 flex items-center justify-between bg-white sticky top-0 z-40 shadow-sm/50 shrink-0">
+      <button onclick="navigateToMain()" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-950 transition-colors group">
+        <svg class="w-4 h-4 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+        <span>메인 시안 목록으로 돌아가기</span>
+      </button>
+      <span class="text-xs font-mono text-gray-400 tracking-wider uppercase">PROPOSAL SPECIFICATION</span>
+    </nav>
+
+    <!-- 분할 구조 레이아웃: PC에서 화면 높이를 꽉 채우고(flex-1 min-h-0) 페이지 전체 스크롤 없이 좌/우 영역이 각자 내부 스크롤되도록 구성 -->
+    <div class="flex-1 min-h-0 flex flex-col lg:flex-row lg:overflow-hidden">
+      
+      <!-- [왼쪽] 시안 이미지 전용 독립 스크롤 영역 (B안의 긴 이미지에 맞춤형 세로 스크롤 레이아웃 상시 적용) -->
+      <!-- 래퍼: 이미지가 스크롤되어도 안내 배지가 항상 같은 자리에 고정되도록 relative 컨테이너로 감쌈 -->
+      <div class="w-full lg:w-1/2 lg:min-h-0 relative border-b lg:border-b-0 lg:border-r border-gray-250 group">
+        <div 
+          id="detail-image-container"
+          onclick="openModal()" 
+          class="w-full h-full bg-gray-150 overflow-y-auto custom-scrollbar cursor-zoom-in p-0 flex justify-center items-start"
+        >
+          <img 
+            id="detail-main-img"
+            src="" 
+            alt="시안 원본 이미지" 
+            class="w-full h-auto bg-white block shrink-0 select-none"
+            style="max-width: none !important; image-rendering: -webkit-optimize-contrast;"
+          >
+        </div>
+
+        <!-- 전체화면 보기 안내 배지 (클릭은 아래 이미지 영역으로 통과시키기 위해 pointer-events-none) -->
+        <div class="zoom-hint pointer-events-none absolute bottom-5 left-1/2 z-10 flex items-center gap-1.5 bg-gray-900/80 backdrop-blur-md text-white text-xs font-medium pl-3 pr-3.5 py-2 rounded-full shadow-lg border border-white/10 transition-opacity duration-300 whitespace-nowrap">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 8v6m-3-3h6m4 0a8 8 0 11-16 0 8 8 0 0116 0z" />
+          </svg>
+          <span>이미지를 클릭하면 전체 화면으로 크게 볼 수 있어요</span>
+        </div>
+      </div>
+
+      <!-- [오른쪽] 설명 가이드 영역 (A, B, C안 모두 완벽히 고정된 컨테이너 크기와 정렬 상태를 유지) -->
+      <div class="w-full lg:w-1/2 lg:min-h-0 p-8 lg:p-16 overflow-y-auto custom-scrollbar flex flex-col justify-center bg-white">
+        <div class="max-w-xl mx-auto lg:mx-0 w-full space-y-8">
+          <div>
+            <div id="detail-tags" class="flex flex-wrap gap-2 mb-4"></div>
+            <h2 id="detail-title" class="font-title text-2xl lg:text-3xl text-gray-950 tracking-tight leading-snug"></h2>
+          </div>
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 font-mono">Concept Background</h3>
+            <p id="detail-concept-text" class="text-base text-gray-700 leading-relaxed break-keep"></p>
+          </div>
+          <div class="space-y-4 pt-6 border-t border-gray-150">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 font-mono">Key Features</h3>
+            <ul id="detail-features" class="space-y-3.5"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="border-t border-gray-150 bg-gray-50 z-10 shrink-0">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div>© 2026 공정거래위원회 온라인사건·심의포털 고도화 프로젝트.</div>
+        <div class="font-medium text-gray-700 tracking-wider">CONFIDENTIAL · INTERNAL USE ONLY</div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ==================== [MODAL - REAL WEBSITE PROTOTYPE] ==================== -->
+  <div 
+    id="fullscreen-modal" 
+    class="fixed inset-0 bg-white z-50 overflow-auto custom-scrollbar hidden animate-fade-in modal-wrapper"
+  >
+    <!-- 실제 웹 퍼블리싱 사이트처럼 1:1 풀 사이즈 매핑 (상하좌우 오리지널 해상도 가로/세로 스크롤 생겨도 선명하게 유지) -->
+    <!-- 이미지를 클릭하면 메인으로 복귀 (긴 이미지 스크롤 시 우측 상단 버튼이 보이지 않아도 어디서든 클릭으로 빠져나갈 수 있도록 함) -->
+    <div class="w-auto h-auto min-h-screen relative">
+      <img 
+        id="modal-img" 
+        src="" 
+        alt="실제 완료 웹사이트 뷰포트" 
+        onclick="navigateToMain()"
+        title="이미지를 클릭하면 메인 화면으로 돌아갑니다"
+        class="block select-none mx-auto cursor-pointer"
+        style="max-width: none !important; image-rendering: -webkit-optimize-contrast;"
+      >
+    </div>
+
+    <!-- 이미지 하단 안내 바: 끝까지 스크롤했을 때 메인으로 돌아가는 방법을 안내 (영역 클릭 시 메인 복귀) -->
+    <div 
+      onclick="navigateToMain()"
+      class="relative z-10 w-full flex items-center justify-center gap-2.5 px-6 py-5 bg-gray-900 hover:bg-gray-950 text-white text-[0.8rem] font-medium cursor-pointer select-none transition-colors"
+      title="메인 화면으로 돌아가기"
+    >
+      <svg class="w-3.5 h-3.5 text-white/90 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span>이미지를 클릭하면 메인 화면으로 돌아갑니다</span>
+    </div>
+
+    <!-- 우측 상단 고정 플로팅 '메인으로' 복귀 버튼 제거됨: 이미지/하단 안내 바 클릭으로 메인 복귀 -->
+  </div>
+
+</body>
+</html>
