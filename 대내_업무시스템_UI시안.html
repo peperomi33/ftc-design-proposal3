@@ -318,7 +318,7 @@ img{display:block;max-width:100%;}
    ============================================================ */
 const DATA = [
   {
-    id:'A', tag:'시안 A', title:'A안', concept:'넓게 보고, 깊게 다룬다',
+    id:'A', tag:'대내 시스템 디자인 시안', title:'A안', concept:'넓게 보고, 깊게 다룬다',
     detail:'화면 폭 전체를 데이터에 활용하는 Wide Layout입니다. 표와 목록이 많은 심결·배당 업무에 최적화된 구조로, 안건배당 10,000건도 가로 스크롤 없이 한눈에 확인할 수 있습니다.',
     bullets:['상단 와이드 GNB — 화면 폭 전체를 콘텐츠 영역으로 활용','MDI 바 하단 배치 — 콘텐츠 상단 시야 확보','대용량 목록 가로 스크롤 없이 한눈에','심결·배당 업무 집중 환경에 적합'],
     thumb:'images/a-01.png',
@@ -383,7 +383,7 @@ const DATA = [
     ]
   },
   {
-    id:'B', tag:'시안 B', title:'B안', concept:'익숙하게, 빠르게 찾는다',
+    id:'B', tag:'대내 시스템 디자인 시안', title:'B안', concept:'익숙하게, 빠르게 찾는다',
     detail:'좌측 GNB로 전체 메뉴를 상시 노출하는 Left Menu Layout입니다. 처음 쓰는 사용자도 헤매지 않고 원하는 기능을 빠르게 찾을 수 있으며, 접기 버튼으로 콘텐츠 영역을 자유롭게 확장할 수 있습니다.',
     bullets:['좌측 GNB 상시 노출 — 접기로 콘텐츠 영역 확장','MDI 바 상단 탭 — 브라우저 탭처럼 직관적 전환','3단계 메뉴 항상 노출 — 학습 부담 최소화','다목적 폭넓은 업무 환경에 적합'],
     thumb:'images/b-01.png',
@@ -496,6 +496,8 @@ DATA.forEach((p, pi) => {
       <span class="tag">${p.tag}</span>
       <h2>${p.title}</h2>
       <p class="card-concept">${p.concept}</p>
+      <p class="card-detail">${p.detail}</p>
+      <ul class="card-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
       <span class="more">화면 시안 보기</span>
     </div>`;
   const timg = card.querySelector('img');
