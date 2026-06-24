@@ -4,24 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>대내 업무시스템 UI 시안 — 공정거래위원회 온라인사건·심의포털</title>
-
-<!-- ============================================================
-     폐쇄망(오프라인) 사용 안내
-     - 외부 CDN/폰트 링크 없이 단일 파일로 동작합니다.
-     - 시안 이미지는 이 파일과 같은 위치의 images/ 폴더에 넣고
-       아래 DATA 객체의 src 경로만 맞춰 주면 됩니다.
-     - Pretendard를 폐쇄망에서 쓰려면 woff2 파일을 같은 폴더에 두고
-       아래 @font-face 주석을 해제하세요.
-     ============================================================ -->
 <style>
-/*
 @font-face {
   font-family: 'Pretendard';
-  src: url('PretendardVariable.woff2') format('woff2-variations');
-  font-weight: 45 920; font-display: swap;
+  src: url('font/PretendardVariable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
-*/
-
 :root{
   --brand:#1C60EF;          /* A.MATE / 공정위 메인 블루 */
   --brand-weak:#DBE8FE;     /* 연블루 서피스 */
@@ -132,11 +122,11 @@ img{display:block;max-width:100%;}
 
 .stage{
   display:grid;grid-template-columns:236px minmax(0,1fr) 360px;
-  gap:0;width:100%;min-height:calc(100vh - 64px - 65px);
+  gap:0;width:100%;height:calc(100vh - 64px - 65px);overflow:hidden;
 }
 
 /* --- 좌측 시나리오 레일(시그니처) --- */
-.rail{border-right:1px solid var(--line);padding:24px 16px;background:var(--surface);}
+.rail{border-right:1px solid var(--line);padding:24px 16px;background:var(--surface);overflow-y:auto;min-height:0;}
 .rail .rail-label{
   font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink-3);
   padding:0 8px 12px;text-transform:uppercase;
@@ -162,7 +152,7 @@ img{display:block;max-width:100%;}
 .scn.on .num{background:#fff;color:var(--brand);border-color:#fff;}
 
 /* --- 가운데 뷰어 --- */
-.viewer{padding:28px 30px;display:flex;flex-direction:column;min-width:0;}
+.viewer{padding:28px 30px;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;}
 .viewer .vtop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
 .viewer .vtop .vname{font-size:15px;font-weight:800;letter-spacing:-.01em;}
 .subtoggle{display:inline-flex;gap:4px;background:var(--bg);padding:4px;border-radius:999px;border:1px solid var(--line);}
@@ -171,11 +161,12 @@ img{display:block;max-width:100%;}
 }
 .subtoggle button.on{background:var(--surface);color:var(--brand);box-shadow:0 1px 3px rgba(21,25,43,.12);}
 .frame{
-  position:relative;flex:1;min-height:420px;
+  position:relative;flex:1;min-height:0;
+  align-self:center;max-width:100%;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   overflow:hidden;display:grid;place-items:center;box-shadow:var(--shadow);cursor:pointer;
 }
-.frame img{width:100%;height:100%;object-fit:contain;background:#fff;}
+.frame img{height:100%;width:auto;max-width:100%;object-fit:contain;background:#fff;display:block;}
 .frame .zoom-hint{
   position:absolute;right:14px;bottom:14px;
   font-size:12px;font-weight:600;color:#fff;
@@ -193,7 +184,7 @@ img{display:block;max-width:100%;}
 .vnav button:disabled{opacity:.35;cursor:default;}
 
 /* --- 우측 설명 --- */
-.desc{border-left:1px solid var(--line);padding:28px 28px;background:var(--surface);overflow-y:auto;}
+.desc{border-left:1px solid var(--line);padding:28px 28px;background:var(--surface);overflow-y:auto;min-height:0;}
 .desc .d-num{font-size:12px;font-weight:700;color:var(--brand);letter-spacing:.08em;font-variant-numeric:tabular-nums;}
 .desc h3{margin:8px 0 14px;font-size:21px;font-weight:800;letter-spacing:-.02em;}
 .desc .d-body{color:var(--ink-2);font-size:14.5px;line-height:1.72;}
@@ -211,12 +202,18 @@ img{display:block;max-width:100%;}
   background:rgba(11,14,24,.92);place-items:center;padding:40px;
 }
 .lightbox.open{display:grid;}
-.lightbox img{max-width:96vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,.5);cursor:pointer;}
-.lb-close{position:fixed;top:22px;right:26px;width:46px;height:46px;border-radius:50%;
-  background:rgba(255,255,255,.12);color:#fff;font-size:22px;display:grid;place-items:center;transition:.16s;}
-.lb-close:hover{background:rgba(255,255,255,.24);}
-.lb-cap{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);
-  color:rgba(255,255,255,.82);font-size:13.5px;font-weight:600;}
+.lightbox img{
+  max-width:96vw;max-height:90vh;object-fit:contain;border-radius:8px;
+  box-shadow:0 24px 80px rgba(0,0,0,.5);cursor:pointer;
+}
+/* 시퀀스 크로스페이드용 상단 레이어 — 검은 화면 없이 새 이미지를 겹쳐 전환 */
+#lbImg2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .24s ease;}
+#lbImg2.show{opacity:1;}
+.lb-close{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);
+  padding:10px 32px;border-radius:999px;border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.14);color:#fff;font-size:14px;font-weight:600;letter-spacing:.04em;transition:.16s;}
+.lb-close:hover{background:rgba(255,255,255,.26);}
+.lb-cap{display:none;}
 .lb-arrow{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
   background:rgba(255,255,255,.12);color:#fff;font-size:24px;display:grid;place-items:center;transition:.16s;}
 .lb-arrow:hover{background:rgba(255,255,255,.24);}
@@ -225,13 +222,14 @@ img{display:block;max-width:100%;}
 
 /* ================= 반응형 ================= */
 @media (max-width:1100px){
-  .stage{grid-template-columns:1fr;}
-  .rail{border-right:none;border-bottom:1px solid var(--line);padding:14px 18px;}
+  .stage{grid-template-columns:1fr;height:auto;overflow:visible;}
+  .rail{border-right:none;border-bottom:1px solid var(--line);padding:14px 18px;overflow:visible;}
+  .viewer{overflow:visible;}
   .rail .scn-list{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;}
   .rail .rail-label{display:none;}
   .scn{flex:0 0 auto;width:auto;margin:0;white-space:nowrap;}
   .scn .scn-sub{display:none;}
-  .desc{border-left:none;border-top:1px solid var(--line);}
+  .desc{border-left:none;border-top:1px solid var(--line);overflow:visible;}
   .frame{min-height:300px;}
 }
 @media (max-width:680px){
@@ -246,7 +244,7 @@ img{display:block;max-width:100%;}
 
 <!-- 상단 바 -->
 <header class="topbar">
-  <div class="brand"><span class="dot"></span>공정거래위원회 온라인사건·심의포털 구축 프로젝트</div>
+  <div class="brand" id="brandBtn" style="cursor:pointer"><span class="dot"></span>공정거래위원회 온라인사건·심의포털 구축 프로젝트</div>
   <div class="spacer"></div>
   <div class="meta">대내 업무시스템 화면 디자인 시안 제안</div>
 </header>
@@ -256,7 +254,7 @@ img{display:block;max-width:100%;}
   <div class="hero">
     <span class="eyebrow">대내 업무시스템 · Design Proposal</span>
     <h1>온라인사건·심의포털 대내 시스템<br>화면 디자인 시안</h1>
-    <p>두 가지 방향(A안·B안)의 시안입니다. 카드를 선택하면 화면 시나리오별 시안과 설명을 확인할 수 있고, 이미지를 누르면 원본 크기로 볼 수 있습니다.</p>
+    <p>두 가지 방향(A안·B안)의 시안입니다. 카드를 선택하면 화면 시나리오별 시안과 설명을 확인할 수 있고,<br>이미지를 누르면 원본 크기로 볼 수 있습니다.</p>
   </div>
   <div class="cards" id="cardGrid"></div>
 </section>
@@ -264,7 +262,6 @@ img{display:block;max-width:100%;}
 <!-- ===== 상세 뷰 ===== -->
 <section id="detailView" class="view">
   <div class="detail-head">
-    <button class="back" id="backBtn">← 목록으로</button>
     <div>
       <div class="title" id="dTitle"></div>
       <div class="concept" id="dConcept"></div>
@@ -288,10 +285,6 @@ img{display:block;max-width:100%;}
         <img id="frameImg" alt="">
         <span class="zoom-hint">🔍 클릭하면 크게 보기</span>
       </button>
-      <div class="vnav">
-        <button id="prevScn">← 이전 화면</button>
-        <button id="nextScn">다음 화면 →</button>
-      </div>
     </div>
 
     <!-- 우측 설명 -->
@@ -307,9 +300,10 @@ img{display:block;max-width:100%;}
 
 <!-- 라이트박스 -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="이미지 원본 보기">
-  <button class="lb-close" id="lbClose" aria-label="닫기">✕</button>
+  <button class="lb-close" id="lbClose" aria-label="닫기">닫기</button>
   <button class="lb-arrow prev" id="lbPrev" aria-label="이전 이미지">‹</button>
   <img id="lbImg" alt="">
+  <img id="lbImg2" alt="" aria-hidden="true">
   <button class="lb-arrow next" id="lbNext" aria-label="다음 이미지">›</button>
   <div class="lb-cap" id="lbCap"></div>
 </div>
@@ -344,12 +338,14 @@ const DATA = [
       {
         name:'뎁스 선택', sub:'2뎁스 선택',
         images:[{src:'images/a-02.png', cap:'A안 · 2뎁스 선택'}],
+        clickSeq:[{src:'images/a-01.png', cap:'A안 · 기본화면'},{src:'images/a-02.png', cap:'A안 · 2뎁스 선택'}],
         body:'좌측 GNB에서 상위 메뉴를 선택하면 2뎁스가 펼쳐지는 단계적 탐색 구조입니다.',
         features:['선택 단계에 따른 메뉴 확장','현재 위치 시각적 강조','3뎁스까지 일관된 인터랙션']
       },
       {
         name:'MDI 분할모드', sub:'하단 MDI바 분할 클릭',
         images:[{src:'images/a-03.png', cap:'A안 · MDI 분할모드'}],
+        clickSeq:[{src:'images/a-01.png', cap:'A안 · 기본화면'},{src:'images/a-03.png', cap:'A안 · MDI 분할모드'}],
         body:'하단 MDI 탭바에서 분할모드를 클릭하면 나타나는 창입니다. 여러 업무 화면을 동시에 배치해 비교·병행 작업이 가능합니다.',
         features:['하단 MDI 탭바 기반 멀티태스킹','분할 화면 동시 보기','탭 간 빠른 전환']
       },
@@ -406,15 +402,20 @@ const DATA = [
       },
       {
         name:'뎁스 펼침', sub:'1뎁스 클릭 시',
-        images:[{src:'images/b-02.png', cap:'B안 · 뎁스 펼침'}],
+        images:[
+          {src:'images/b-01.png', cap:'B안 · 1뎁스 기본'},
+          {src:'images/b-02.png', cap:'B안 · 2뎁스 펼침'}
+        ],
         body:'레프트메뉴 1뎁스를 클릭하면 2뎁스가 펼쳐지는 단계적 탐색 구조입니다.',
         features:['1뎁스 클릭 시 하위 메뉴 확장','단계 노출','현재 위치 강조']
       },
       {
         name:'레프트메뉴 접기', sub:'레프트메뉴 접기 상태',
         images:[
+          {src:'images/b-02.png', cap:'B안 · 레프트메뉴 접기 기본'},
           {src:'images/b-03.png', cap:'B안 · 레프트메뉴 접기 1단계'},
-          {src:'images/b-04.png', cap:'B안 · 레프트메뉴 접기 2단계'}
+          {src:'images/b-04-01.png', cap:'B안 · 레프트메뉴 접기 2단계'},
+          {src:'images/b-04-02.png', cap:'B안 · 레프트메뉴 접기 3단계'}
         ],
         body:'레프트메뉴를 접었을 때의 상태입니다. 아이콘 중심으로 폭을 줄이거나 완전히 숨겨 작업 영역을 넓힙니다.',
         features:['메뉴 접기 단계 선택','작업 영역 확장','필요 시 즉시 복원']
@@ -495,8 +496,6 @@ DATA.forEach((p, pi) => {
       <span class="tag">${p.tag}</span>
       <h2>${p.title}</h2>
       <p class="card-concept">${p.concept}</p>
-      <p class="card-detail">${p.detail || ''}</p>
-      ${p.bullets ? `<ul class="card-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>` : ''}
       <span class="more">화면 시안 보기</span>
     </div>`;
   const timg = card.querySelector('img');
@@ -537,7 +536,7 @@ function openDetail(pi){
   window.scrollTo(0,0);
   selectScenario(0);
 }
-document.getElementById('backBtn').addEventListener('click', () => {
+document.getElementById('brandBtn').addEventListener('click', () => {
   detailView.classList.remove('active');
   mainView.classList.add('active');
   window.scrollTo(0,0);
@@ -578,9 +577,6 @@ function selectScenario(si){
   ul.innerHTML = feats.map(f => `<li>${f}</li>`).join('');
 
   // 이전/다음 버튼
-  document.getElementById('prevScn').disabled = (si === 0);
-  document.getElementById('nextScn').disabled = (si === p.scenarios.length - 1);
-
   selectImage(0);
 }
 
@@ -595,36 +591,122 @@ function selectImage(ii){
   img.alt = im.cap;
   document.querySelectorAll('#subToggle button').forEach((b, idx) =>
     b.classList.toggle('on', idx === ii));
+  requestAnimationFrame(fitFrameToImage);
 }
 
-/* ---------- 이전/다음 화면 ---------- */
-document.getElementById('prevScn').addEventListener('click', () => {
-  if (cur.s > 0) selectScenario(cur.s - 1);
-});
-document.getElementById('nextScn').addEventListener('click', () => {
-  if (cur.s < DATA[cur.p].scenarios.length - 1) selectScenario(cur.s + 1);
-});
+/* ---------- 가운데 버튼 폭을 실제 렌더된 이미지 폭에 맞춤 (양옆 여백 제거) ---------- */
+function fitFrameToImage(){
+  const frame = document.getElementById('frame');
+  const img = document.getElementById('frameImg');
+  if (!frame || !img || !img.naturalWidth || !img.naturalHeight) return;
+  frame.style.width = '';                 // CSS 기본 폭으로 되돌려 가용 영역 측정
+  const availH = frame.clientHeight;       // 이미지(height:100%)가 실제 채우는 높이
+  const availW = frame.clientWidth;        // 현재 가용 폭(여백 포함)
+  if (!availH || !availW) return;          // 화면이 숨겨져 있으면 보류
+  const ar = img.naturalWidth / img.naturalHeight;
+  let dispW = availH * ar;                  // object-fit:contain 으로 실제 보이는 폭
+  if (dispW > availW) dispW = availW;       // 폭이 더 좁은 경우(세로가 남는 경우) 보호
+  const cs = getComputedStyle(frame);
+  const bx = parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+  frame.style.width = Math.round(dispW + bx) + 'px';   // border-box 기준
+}
+(function bindFrameFit(){
+  const img = document.getElementById('frameImg');
+  if (img) img.addEventListener('load', () => requestAnimationFrame(fitFrameToImage));
+  let rafId = null;
+  window.addEventListener('resize', () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(fitFrameToImage);
+  });
+})();
 
+/* ---------- 이전/다음 화면 ---------- */
 /* ---------- 라이트박스(원본 보기) ---------- */
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
+const lbImg2 = document.getElementById('lbImg2');
 const lbCap = document.getElementById('lbCap');
 const lbPrev = document.getElementById('lbPrev');
 const lbNext = document.getElementById('lbNext');
 
+/* ---------- 클릭 시퀀스 자동 재생 상태 ---------- */
+let seqList = null, seqI = 0, seqTimer = null;
+
+/* ---------- 전체화면(Fullscreen) 유틸 ---------- */
+function requestFs(el){
+  const fn = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+  if (fn){ try { const p = fn.call(el); if (p && p.catch) p.catch(()=>{}); } catch(e){} }
+}
+function exitFs(){
+  const d = document;
+  if (d.fullscreenElement || d.webkitFullscreenElement || d.msFullscreenElement){
+    const fn = d.exitFullscreen || d.webkitExitFullscreen || d.msExitFullscreen;
+    if (fn){ try { fn.call(d); } catch(e){} }
+  }
+}
+function closeLightbox(){
+  clearSeq();
+  lightbox.classList.remove('open');
+  resetFrameToFirst();
+}
+/* 라이트박스를 닫고 상세 화면으로 복귀할 때 가운데 이미지를 첫 화면으로 되돌림 */
+function resetFrameToFirst(){
+  if (cur.i !== 0) selectImage(0);
+}
+/* 네이티브 전체화면이 ESC 등으로 해제되면 라이트박스도 함께 닫기 */
+['fullscreenchange','webkitfullscreenchange','msfullscreenchange'].forEach(ev =>
+  document.addEventListener(ev, () => {
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+    if (!fsEl && lightbox.classList.contains('open')){
+      clearSeq();
+      lightbox.classList.remove('open');
+      resetFrameToFirst();
+    }
+  })
+);
+
 function openLightbox(){
   const s = DATA[cur.p].scenarios[cur.s];
+  if (s.clickSeq && s.clickSeq.length){
+    startClickSeq(s);
+    return;
+  }
   renderLb();
   const multi = s.images.length > 1;
   lbPrev.hidden = !multi; lbNext.hidden = !multi;
   lightbox.classList.add('open');
 }
+
+/* ---------- 클릭 시퀀스: a-01 → a-02 처럼 클릭 시 부드럽게 전환 + 무한 루프 ---------- */
+function startClickSeq(s){
+  seqList = s.clickSeq; seqI = 0;
+  lbPrev.hidden = true; lbNext.hidden = true;   // 클릭 전환 모드 — 좌우 화살표 숨김
+  seqSet(seqList[0]);
+  lightbox.classList.add('open');
+}
+/* 페이드 없이 즉시 이미지 설정 (최초 1장 / 하단 레이어 동기화) */
+function seqSet(im){
+  bindFallback(lbImg, im.cap || '');
+  lbImg.src = im.src; lbImg.alt = im.cap || '';
+  lbCap.textContent = im.cap || '';
+}
+/* 이미지 즉시 전환 */
+function seqShow(idx){
+  seqI = idx;
+  seqSet(seqList[seqI]);
+}
+/* 클릭/화살표로만 다음 화면 (마지막이면 처음으로 되돌아가 무한 루프 — 자동 전환 없음) */
+function seqAdvance(dir){
+  seqI = (seqI + dir + seqList.length) % seqList.length;
+  seqShow(seqI);
+}
+function clearSeq(){ clearTimeout(seqTimer); seqList = null; lbImg2.classList.remove('show'); lbImg2.removeAttribute('src'); }
 function renderLb(){
   const s = DATA[cur.p].scenarios[cur.s];
   const im = s.images[cur.i];
   lbImg.onerror = function(){
     this.onerror = null;
-    lightbox.classList.remove('open');
+    closeLightbox();
     if (cur.i > 0) cur.i--;
     selectImage(cur.i);
   };
@@ -637,12 +719,16 @@ function lbStep(d){
   selectImage(cur.i); renderLb();
 }
 document.getElementById('frame').addEventListener('click', openLightbox);
-document.getElementById('lbClose').addEventListener('click', () => lightbox.classList.remove('open'));
-lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+document.getElementById('lbClose').addEventListener('click', () => closeLightbox());
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 lbPrev.addEventListener('click', e => { e.stopPropagation(); lbStep(-1); });
 lbNext.addEventListener('click', e => { e.stopPropagation(); lbStep(1); });
 lbImg.addEventListener('click', e => {
   e.stopPropagation();
+  if (seqList){
+    seqAdvance(1);   // 다음 화면으로 (마지막이면 처음으로 루프 — 닫지 않음)
+    return;
+  }
   const s = DATA[cur.p].scenarios[cur.s];
   if (s.loop) {
     if (cur.i < s.images.length - 1) {
@@ -650,19 +736,24 @@ lbImg.addEventListener('click', e => {
       selectImage(cur.i);
       renderLb();
     } else {
-      lightbox.classList.remove('open');
+      closeLightbox();
     }
   } else if (cur.i < s.images.length - 1) {
     lbStep(1);
   } else {
-    lightbox.classList.remove('open');
+    closeLightbox();
   }
 });
 
 /* ---------- 키보드 ---------- */
 document.addEventListener('keydown', e => {
   if (lightbox.classList.contains('open')){
-    if (e.key === 'Escape') lightbox.classList.remove('open');
+    if (e.key === 'Escape') { closeLightbox(); return; }
+    if (seqList){
+      if (e.key === 'ArrowRight') seqAdvance(1);
+      if (e.key === 'ArrowLeft')  seqAdvance(-1);
+      return;
+    }
     if (e.key === 'ArrowLeft') lbStep(-1);
     if (e.key === 'ArrowRight') lbStep(1);
     return;
